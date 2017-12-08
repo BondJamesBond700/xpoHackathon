@@ -1,0 +1,37 @@
+.parent {
+    height: calc( 100% - 53px - 21px);
+    /* background-image: url('assets/images/bgb.jpg'); */
+    background-size: cover;
+}
+
+section {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.rcorners3 {
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    width: 350px;
+    height: 230px;
+    margin-top: 5%;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+}
+
+.btn-custom {
+    background: #757575;
+    box-shadow: none;
+    border: 1px solid #c3c3c3;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-custom:hover,
+.btn-custom:focus {
+    outline: 0;
+    border-color: white;
+}

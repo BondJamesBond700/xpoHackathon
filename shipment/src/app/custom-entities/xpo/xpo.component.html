@@ -1,0 +1,183 @@
+<div style="margin-left: 5%;">
+    <div class="col-md-4 col-sm-6 col-xs-12" style="margin-left:10px;    margin-left: -48px;    width: 24.333333%;">
+        <div style="margin: 0 auto;margin-top: 10px;margin-left: 36px;">
+
+            <div class="info-box boxContentClass" style="        background-color: #1a1a1a;width: 200px;">
+                <span class="info-box-icon boxIconClass" style="background-color: #000000;">
+          <i class="fa fa-usd"  style="color: #fff;font-size: 54px;line-height: 54px;background-color: black;" ></i></span>
+                <div class="info-box-content boxContentClass" style="width: 200px;background-color: #191b1c;color: white;">
+                    <span class="info-box-text boxTextClass text-center" style="color: white;">Balance</span>
+                    <span class="info-box-number boxTextClass text-center" style="color: #fff;;text-shadow: 0.1px 0.1px 0.1px">
+          123</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parent">
+        <div style="clear: both;">
+            <section>
+
+                <md-tab-group (selectChange)="showProductHistory($event)">
+                    <md-tab>
+                        <template md-tab-label>
+                          Initiate
+                        </template>
+                        <br>
+
+                        <!--Manufacturer-->
+
+
+                    </md-tab>
+                    <md-tab>
+                        <template md-tab-label>
+                          Transaction History
+                        </template>
+                        <br>
+
+                    </md-tab>
+                </md-tab-group>
+
+            </section>
+        </div>
+    </div>
+
+
+    <div *ngIf="selectedTab=='history'">
+        <div style=" padding-bottom: 10px;opacity: 0.9;background-color: #0a0a09;margin-top: -20px;margin-right: 53px;padding-left: 39px;padding-right: 39px;">
+
+            <label style="color:white;font-size: large;padding-top:16px">Transactions</label>
+
+
+            <div #table style="padding-left:15px;padding-right:15px;    padding-top: 20px;">
+
+                <table class="table table-bordered" style="background-color: black;color: white;">
+                    <thead style="background-color: black;color: white;">
+                        <tr style="background-color: #131514;color: aliceblue;">
+                            <!--  <th>No</th>-->
+                            <th>Start Date</th>
+
+                            <th>Delivery Date</th>
+                            <th>Start Location</th>
+                            <th>End Location</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+
+
+
+
+                        <tr style="background-color: #131514;color: aliceblue;">
+
+                            <td>12</td>
+                            <td>323</td>
+
+
+                            <td>54</td>
+                            <td>45454</td>
+                            <td>Approved</td>
+                            <td>
+                                <button _ngcontent-c5="" class="btn btn-info" style="box-shadow:0px 0px 0px ;background-color:#2b8a2b ;border-color: #3e8d37;" title="Accept" type="button" (click)="onAccept(value,val)">
+                                        <i class="fa fa-check" style="color:white;background-color:#2b8a2b"></i>
+                                        </button>
+
+                                <button _ngcontent-c5="" class="btn btn-info" style="box-shadow:0px 0px 0px;background-color:#c34646;border-color: #c6504f;" tooltip-placement="top" type="button" (click)="onDenied()">
+                                        <i class="fa fa-ban " aria-hidden="true " style="color:white;background-color:#c34646;"></i>
+                                        </button>
+
+                            </td>
+
+
+
+                        </tr>
+
+
+                </table>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div *ngIf="selectedTab=='initiated'">
+
+
+        <div class="row">
+            <div class="col-md-9" style="margin-top: -19px;background: rgb(10, 6, 5);opacity: 0.9;margin-left: 1%;width: 92%;">
+                <div>
+                    <label style="color:white;font-size: large;padding-top:16px">Initiate</label>
+
+                    <br>
+
+                    <div style="margin-bottom: 53px;">
+                        <div class="col-md-12" style="    margin-left: 9%;">
+
+
+
+
+                            <div class="row">
+
+                                <div class="col-md-5" style="    margin-bottom: 1%;">
+                                    <label style="color:#fff;margin-right: 10px"> Pickup Date</label>
+                                    <input type="date" class="form-control" style="width: 78%;" placeholder="Enter quantity" [(ngModel)]="offer.picDate">
+                                </div>
+                                <div class="col-md-5">
+
+                                    <label style="color:#fff;margin-right: 10px"> Delivery date</label>
+                                    <input type="date" class="form-control" style="width: 78%;" placeholder="Enter quantity" type="date" [(ngModel)]="offer.delDate">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5" style="    margin-bottom: 1%;">
+
+                                    <label style="color:#fff;margin-right: 10px"> Pickup Location</label>
+                                    <input type="text" class="form-control" style="width: 78%;" placeholder="Enter quantity" [(ngModel)]="offer.picLocation">
+                                </div>
+
+                                <div class="col-md-5">
+
+                                    <label style="color:#fff;margin-right: 10px"> Delivery Location</label>
+                                    <input type="text" class="form-control" style="width: 78%;" placeholder="Enter quantity" [(ngModel)]="offer.delLocation">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+
+                                    <label style="color:#fff;margin-right: 10px"> Price</label>
+                                    <input type="number" class="form-control" style="width: 78%;" placeholder="Enter quantity" [(ngModel)]="offer.price">
+                                    <!-- <div class="col-md-5"> -->
+                                </div>
+                                <div class="col-md-5 formDiv">
+                                    <label class="control-label col-sm-2 formLabel">Upload Document</label>
+                                    <div class="col-sm-7">
+                                        <input type="file" #fileInput ng2FileSelect [uploader]='fileUploader' />
+                                    </div>
+
+                                    <!-- </div> -->
+                                </div>
+
+                                <button type="submit" class="btn buttonStyle" style="    margin-bottom: 1%;    background-color: #228c20!important;color: #fff;margin-left: -51%;margin-top: 8%;width: 11%;" (ngSubmit)="fileUploader.uploadAll()" (click)="createOffer(offer)">Initiate</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>

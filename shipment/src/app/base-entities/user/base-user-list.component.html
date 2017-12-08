@@ -1,0 +1,122 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="!sub">
+        <md-card-title>Search User with search criterias</md-card-title>
+        <md-card-content>
+        <div  ngForm #userForm="ngForm">
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="userName">User Name</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="userName" [(ngModel)]="example.userName" name="userName" #userName="ngModel"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="password" [(ngModel)]="example.password" name="password" #password="ngModel"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="firstName" [(ngModel)]="example.firstName" name="firstName" #firstName="ngModel"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="middleName">Middle Name</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="middleName" [(ngModel)]="example.middleName" name="middleName" #middleName="ngModel"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="lastName">Last Name</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="lastName" [(ngModel)]="example.lastName" name="lastName" #lastName="ngModel"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="email" [(ngModel)]="example.email" name="email" #email="ngModel"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="role">Role</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="role" [(ngModel)]="example.role" name="role" #role="ngModel"/>
+                </div>
+            </div>
+        </div>
+
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button (click)="search()"><md-icon>search</md-icon>Search</button>
+        </md-card-actions>
+    </md-card>
+
+    <md-card>
+    <md-card-content>
+    <p>The list of results below is server-side paginated...</p>
+	<div class="table-responsive">
+        <table class="table table-bordred table-striped" [mfData]="currentPage.content" #mf="mfDataTable" [mfRowsOnPage]="5" (mfSelectedEntities)="setSelectedEntities($event)">
+            <thead>
+				<tr>
+					<th><mfDefaultSorter by="userName">User Name</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="password">Password</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="firstName">First Name</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="middleName">Middle Name</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="lastName">Last Name</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="email">Email</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="birthDate">Birth Date</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="role">Role</mfDefaultSorter></th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of mf.data; let ndx = index">
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.userName}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.password}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.firstName}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.middleName}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.lastName}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.email}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.birthDate | date:"yyyy-MM-dd"}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.role}}</td>
+                    <td style="display:flex;">
+						<p data-placement="top" data-toggle="tooltip" title="Edit">
+                            <button style="margin-right:10px; padding: 2px 10px 0px 10px;height:24px;cursor:pointer;" class="btn btn-primary" (click)="onRowSelect(item)"
+                            data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        </p>
+                        <p data-placement="top" data-toggle="tooltip" title="Delete">
+                           <button style="padding: 2px 10px 0px 10px;height:24px;cursor:pointer;" class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete"
+                            (click)="showDeleteDialog(item)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="12"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="addNew()"><md-icon>add</md-icon>Add</button>
+    </md-card-actions>
+    </md-card>
+</div>

@@ -1,0 +1,70 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="!sub">
+        <md-card-title>Search Chain with search criterias</md-card-title>
+        <md-card-content>
+        <div  ngForm #chainForm="ngForm">
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="chainName">Chain Name</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="chainName" [(ngModel)]="example.chainName" name="chainName" #chainName="ngModel"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="remarks">Remarks</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="remarks" [(ngModel)]="example.remarks" name="remarks" #remarks="ngModel"/>
+                </div>
+            </div>
+        </div>
+
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button (click)="search()"><md-icon>search</md-icon>Search</button>
+        </md-card-actions>
+    </md-card>
+
+    <md-card>
+    <md-card-content>
+    <p>The list of results below is server-side paginated...</p>
+	<div class="table-responsive">
+        <table class="table table-bordred table-striped" [mfData]="currentPage.content" #mf="mfDataTable" [mfRowsOnPage]="5" (mfSelectedEntities)="setSelectedEntities($event)">
+            <thead>
+				<tr>
+					<th><mfDefaultSorter by="chainName">Chain Name</mfDefaultSorter></th>
+					<th><mfDefaultSorter by="remarks">Remarks</mfDefaultSorter></th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of mf.data; let ndx = index">
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.chainName}}</td>
+                    <td class="hyperlink" (click)="rowSelected(item)">{{item.remarks}}</td>
+                    <td style="display:flex;">
+						<p data-placement="top" data-toggle="tooltip" title="Edit">
+                            <button style="margin-right:10px; padding: 2px 10px 0px 10px;height:24px;cursor:pointer;" class="btn btn-primary" (click)="onRowSelect(item)"
+                            data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        </p>
+                        <p data-placement="top" data-toggle="tooltip" title="Delete">
+                           <button style="padding: 2px 10px 0px 10px;height:24px;cursor:pointer;" class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete"
+                            (click)="showDeleteDialog(item)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="12"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="addNew()"><md-icon>add</md-icon>Add</button>
+    </md-card-actions>
+    </md-card>
+</div>

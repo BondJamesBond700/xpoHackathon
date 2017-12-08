@@ -1,0 +1,17 @@
+<div class="parent">
+    <section>
+        <div class="rcorners3">
+            <!--<form class="form" role="form">-->
+            <div class="form-group">
+                <label for="username" style="color:whitesmoke;">User Id</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" [(ngModel)]="user.username">
+            </div>
+            <div class="form-group">
+                <label for="password" style="color:whitesmoke;">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password" [(ngModel)]="user.password">
+            </div>
+            <button md-raised-button type="submit" class="btn btn-custom" (click)="login(user)"> Sign in</button>
+            <!--</form>-->
+        </div>
+    </section>
+    <div>
