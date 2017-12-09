@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
+Built-By: Pranav-PC
+Build-Jdk: 9.0.1
 Implementation-Title: logistics
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Pranav_Singhal
 Implementation-Vendor-Id: com.xpo-logistics-hackathon
-Build-Jdk: 1.8.0_91
+Implementation-Vendor: Pivotal Software, Inc.
 Implementation-URL: http://projects.spring.io/spring-boot/xpo-logistic
  s/
 Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
 

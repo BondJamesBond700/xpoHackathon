@@ -1,17 +1,17 @@
 package com.xpo.hackathon;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
-import javax.inject.Inject;
+import java.io.InputStream;
+import java.util.Properties;
 
 import org.springframework.web.client.RestTemplate;
 
 public class BlockchainService {
 
-	@Inject
-	private RestTemplate restTemplate;
+	private RestTemplate restTemplate = new RestTemplate();
 
 	public ResponseVO invokeContractMethod(String type, InvokeFuncDTO invokeFuncDTO) {
 		String url = "";
@@ -23,7 +23,23 @@ public class BlockchainService {
 		return new ResponseVO(tx.transactionHash, tx.output);
 	}
 
-	private String readContract(String filePath) throws IOException {
+	public ResponseVO login(String username, String password) {
+		String value = null;
+		try {
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
+			Properties properties = new Properties();
+			properties.load(inputStream);
+			value = properties.getProperty(username);
+			if (value != null && value.equals(password)) {
+				return new ResponseVO("Success", username);
+			}
+		} catch (FileNotFoundException exception) {
+		} catch (IOException ex) {
+		}
+		return new ResponseVO("Failure", username);
+	}
+
+	public String readContract(String filePath) throws IOException {
 		BufferedReader reader = null;
 		try {
 			StringBuilder fileData = new StringBuilder();
