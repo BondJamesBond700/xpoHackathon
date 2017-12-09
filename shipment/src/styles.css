@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~font-awesome/css/font-awesome.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~primeng/resources/themes/omega/theme.css';
+@import '~primeng/resources/primeng.min.css';
+.col-icon {
+    width: 60px;
+}
+
+.hyperlink:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.md-tab-body-wrapper {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+}
+
+.contentStyle {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    height: 1%;
+    overflow: hidden;
+    margin-top: 3%;
+}
+
+.mat-tab-label {
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: white !important;
+    opacity: 1 !important;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+md-ink-bar {
+    background-color: white!important;
+    height: 3px !important;
+    visibility: visible;
+    left: 160px;
+    width: 160px;
+}
+
+.mat-dialog-container {
+    background-color: #a9a5a5;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.info-box {
+    display: block;
+    min-height: 45px;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+.info-box-content {
+    padding: 5px 10px;
+    margin-left: 90px;
+}
+
+.info-box-number {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.info-box-text {
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.boxTextClass {
+    color: #313131;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.boxContentClass {
+    background-color: none;
+}
+
+.info-box-icon {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    display: block;
+    float: left;
+    height: 58px;
+    width: 90px;
+    text-align: center;
+    font-size: 54px;
+    line-height: 59px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.info-box-icon>img {
+    max-width: 100%;
+}
+
+.boxIconClass .fa {
+    color: #212F3D;
+}
+
+.panel-default {
+    border-color: #c6d0d7 !important;
+    ;
+}
+
+.panel-default>.panel-heading {
+    color: #fff !important;
+    background-color: #11212a !important;
+    background-color: #000000 !important;
+    text-align: center;
+}
+
+.panel-body {
+    padding: 15px;
+    background-color: #070c10 !important;
+}

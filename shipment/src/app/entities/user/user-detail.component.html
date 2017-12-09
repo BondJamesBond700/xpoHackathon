@@ -1,0 +1,132 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="user" ngForm #userForm="ngForm">
+        <md-card-title>User Details</md-card-title>
+        <md-card-content>
+        <div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="userName">User Name  *</label></div>
+                <div class="col-md-5">
+                    <input class="form-control" id="userName" [(ngModel)]="user.userName"  required placeholder="Required"  name="userName" #userName="ngModel"/>
+                </div>
+                <div class="col-md-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userName.valid && userName.dirty && userName.errors['required']">
+                        <i class="fa fa-close"></i>
+                        User Name is required
+                    </div>
+                </div>
+            </div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="password">Password  *</label></div>
+                <div class="col-md-5">
+                    <input type="password" class="form-control"  [(ngModel)]="user.password" name="password" #password="ngModel"/>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="firstName">First Name  *</label></div>
+                <div class="col-md-5">
+                    <input class="form-control" id="firstName" [(ngModel)]="user.firstName"  required placeholder="Required"  name="firstName" #firstName="ngModel"/>
+                </div>
+                <div class="col-md-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!firstName.valid && firstName.dirty && firstName.errors['required']">
+                        <i class="fa fa-close"></i>
+                        First Name is required
+                    </div>
+                </div>
+            </div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="middleName">Middle Name </label></div>
+                <div class="col-md-5">
+                    <input class="form-control" id="middleName" [(ngModel)]="user.middleName"   name="middleName" #middleName="ngModel"/>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="lastName">Last Name  *</label></div>
+                <div class="col-md-5">
+                    <input class="form-control" id="lastName" [(ngModel)]="user.lastName"  required placeholder="Required"  name="lastName" #lastName="ngModel"/>
+                </div>
+                <div class="col-md-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!lastName.valid && lastName.dirty && lastName.errors['required']">
+                        <i class="fa fa-close"></i>
+                        Last Name is required
+                    </div>
+                </div>
+            </div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="email">Email  *</label></div>
+                <div class="col-md-5">
+                    <input class="form-control" id="email" [(ngModel)]="user.email"  required placeholder="Required"  validateEmail name="email" #email="ngModel"/>
+                </div>
+                <div class="col-md-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!email.valid && email.dirty && email.errors['required']">
+                        <i class="fa fa-close"></i>
+                        Email is required
+                    </div>
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!email.valid && email.dirty && email.errors['validateEmail']">
+                        <i class="fa fa-close"></i>
+                        Email is invalid. Expecting a valid email address.
+                    </div>
+                                    </div>
+            </div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="birthDate">Birth Date </label></div>
+                <div class="col-md-5">
+                    <div class="col-md-8" style="padding-left: initial;">
+                    <div class="input-group date">
+                        <input type="text" [(ngModel)]="value" class="form-control input-sm" [ngModelOptions]="{standalone: true}" (focus)="open()" />
+                        <span class="input-group-addon" (click)="open()">
+                            <span class="glyphicon-calendar glyphicon"></span>
+                        </span>
+                    </div>
+                    <div class="dp-popup" *ngIf="showDatepicker">
+                        <datepicker [(ngModel)]="dt" [showWeeks]="true" [ngModelOptions]="{standalone: true}" (selectionDone)="onSelectionDone($event)"></datepicker>
+                        <div class="clearfix">
+                            <div class="pull-left">
+                                <button type="button" class="btn btn-sm btn-primary" (click)="today()">Today</button>
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-sm btn-danger" (click)="clear()">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+             <div class="row form-group">
+              <div class="col-md-1">
+                </div>
+                <div class="col-md-2"><label for="role">Role </label></div>
+                <div class="col-md-5">
+                    <input class="form-control" id="role" [(ngModel)]="user.role"   name="role" #role="ngModel"/>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+         </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!userForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+
+</div>

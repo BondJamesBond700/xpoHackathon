@@ -1,0 +1,11 @@
+#scrollStyle {
+    overflow-x: hidden;
+    height: 610px;
+    overflow-y: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* margin-top:-18px;
+       padding-left:0px;
+        padding-right: 0px;*/
+    /* width:1362px;*/
+}

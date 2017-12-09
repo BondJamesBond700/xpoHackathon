@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse" style="margin-bottom:0px;">
+    <div class="container-fluid" style="margin-bottom: 18px;">
+        <div class="navbar-header">
+            <i class="fa fa-bars" aria-hidden="true" (click)="onClickHamButton($event)"></i>
+            <a class="navbar-brand" href="#">Railway Service provider</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right" style="cursor: pointer;">
+
+            <li *ngIf="!isLoggedIn"><a style="color:#e2e2e2;font-weight:bold" (click)="login()"><i class="fa fa-sign-in" style="color:#e2e2e2"></i> Login</a>
+            </li>
+            <li *ngIf="isLoggedIn" style="color:#e2e2e2;font-weight:bold" (click)="navToTransaction()"><a style="color:#e2e2e2;font-weight:bold"><i class="fa fa-user" style="color:#e2e2e2"></i> {{displayName}}</a></li>
+            <li *ngIf="isLoggedIn"><a style="color:#e2e2e2;font-weight:bold" (click)="logout()"><i class="fa fa-sign-out" style="color:#e2e2e2"></i>Logout</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="col-md-12" style="padding-right:0px;padding-left:0px;">
+    <rc-sidebar [menuItems]="menuItems" *ngIf="sidebarRequired" (changeWidth)="onChangeSidebarWidth($event)"></rc-sidebar>
+    <div [ngStyle]="bodyMinusSidebarStyles" [ngClass]="{'body-minus-sidebar': sidebarRequired}" class=appStyle>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<ng2-toasty></ng2-toasty>
